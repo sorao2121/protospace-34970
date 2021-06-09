@@ -35,7 +35,7 @@ class PrototypesController < ApplicationController
   def update
     @prototype = Prototype.find(params[:id])
     if @prototype.update(prototype_params)
-      redirect_to edit
+      redirect_to root_path
     else
       render :edit
     end
@@ -54,7 +54,7 @@ class PrototypesController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?  
+    unless user_signed_in? 
       redirect_to action: :index 
     end
   end
